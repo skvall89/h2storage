@@ -6,14 +6,11 @@ Created on Wed Jun 12 13:11:28 2024
 """
 
 #############################
-# HYDROGEN STORAGE 2D-Model
+# HYDROGEN STORAGE Model
 #############################
 import mph
 import math
 import numpy as np
-################################
-#MODELS 
-################################
 
 ################################
 # MODEL PARAMETERS

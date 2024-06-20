@@ -33,7 +33,7 @@ rho_rock = 2500 # kg/m^3
 cp_rock = 725 # J/(kg*K)
 
 #########################################################################################################
-#MECHANICAL PROPERTIES - Hoek - Brown -criterion for unaltered jointed rock masses with hard intact rock !! sigma1 = sigma3 + sigma_ci*sqrt((m*sigma3)/(sigma_ci +S))
+#MECHANICAL PROPERTIES - Hoek - Brown -criterion 
 #########################################################################################################
 compressive_strength = 200 # MPa sigma_ci = uniaxial compressive strength
 youngs_modulus = 60 # GPa
@@ -502,8 +502,8 @@ def create_h2storagemodel(criterion, model_dimension) :#h2_params, model
         h2storage.component("comp1").physics("solid").create("roll1", "Roller", bnd_2d)  # Boundary condition for outer edge - no displacement in x-directio
         h2storage.component("comp1").physics("solid").feature("lemm1").feature("act1").selection().named(f"geom1_{h2storage_sel_2d}_dom")
         h2storage.component("comp1").physics("solid").feature("roll1").selection().named(f"geom1_{faraway_bnd}")
-        h2storage.component("comp1").physics("solid").feature("fix1").selection().named(f"geom1_{bottom_bnd_2d}")
         h2storage.component("comp1").physics("solid").create("fix1", "Fixed", bnd_2d)  # Boundary condition for bottom edge - no displacement
+        h2storage.component("comp1").physics("solid").feature("fix1").selection().named(f"geom1_{bottom_bnd_2d}")
         h2storage.component("comp1").physics("solid").create("sym1", "SymmetrySolid", bnd_2d) # symmetry boundary condition 
         h2storage.component("comp1").physics("solid").feature("sym1").selection().named(f"geom1_{symmetry_bnd}")
         h2storage.component("comp1").physics("solid").create("bndl1", "BoundaryLoad", bnd_2d) # load boundary condition for storage once hydrogen storage is pressurizated  
